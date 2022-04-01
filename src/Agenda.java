@@ -2,6 +2,7 @@ import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Agenda {
 
@@ -13,6 +14,7 @@ public class Agenda {
     public Agenda() {
     }
 
+    Scanner reader = new Scanner(System.in);
 
     public List<Contacto> getContactos() {
         return contactos;
@@ -23,9 +25,22 @@ public class Agenda {
         contactos.add(contact);
     }
 
+    public Contacto createContact() {
+        String name = "";
+        String num = "";
+        System.out.println("Nombre del contacto:");
+        name = reader.nextLine();
+        System.out.println("Numero del contacto:");
+        num = reader.next();
+
+        Contacto t = new Contacto(name, num);
+        return t;
+    }
+
     // falta poner que es alfabeticamente
     public void seeContacts() {
         System.out.println();
+        System.out.println("Tus contactos son:");
         for (Contacto contact : contactos) {
             System.out.println(contactos.indexOf(contact) + "- " + contact);
         }
@@ -36,7 +51,7 @@ public class Agenda {
         return contactos.get(num);
     }
 
-    public void delete(int num) {
+    public void deleteContact(int num) {
         contactos.remove(num);
     }
 
@@ -48,7 +63,7 @@ public class Agenda {
         contactos.add(w);
     }
 
-    public void clearAgenda(){
+    public void clearAgenda() {
         contactos.clear();
     }
 }
