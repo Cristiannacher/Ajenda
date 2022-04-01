@@ -13,10 +13,6 @@ public class Main {
 
         Agenda agenda = new Agenda();
 
-        Contacto contacto = new Contacto("Alfredo No Mires", "6894328754");
-        Contacto contacto2 = new Contacto("Alba Su rero", "689456723");
-        Contacto contacto3 = new Contacto("Aitor Menta Fuerte", "698345781");
-
         agenda.setSomRandomContacts();
 
         while (si) {
@@ -78,7 +74,7 @@ public class Main {
                         si = false;
                         break;
                 }
-            } else System.out.println("Elige una order valida cabezon");
+            } else System.out.println("Elige una orden valida cabezon");
 
         }
     }
