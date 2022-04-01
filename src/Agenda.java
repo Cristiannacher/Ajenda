@@ -31,7 +31,7 @@ public class Agenda {
         System.out.println("Nombre del contacto:");
         name = reader.nextLine();
         System.out.println("Numero del contacto:");
-        num = reader.next();
+        num = reader.nextLine();
 
         Contacto t = new Contacto(name, num);
         return t;
@@ -41,10 +41,12 @@ public class Agenda {
     public void seeContacts() {
         System.out.println();
         System.out.println("Tus contactos son:");
-        for (Contacto contact : contactos) {
-            System.out.println(contactos.indexOf(contact) + "- " + contact);
-        }
-        System.out.println();
+        if(!contactos.isEmpty()) {
+            for (Contacto contact : contactos) {
+                System.out.println(contactos.indexOf(contact) + "- " + contact);
+            }
+            System.out.println();
+        } else System.out.println("Tu lista de contactos esta vacia");
     }
 
     public Contacto getContact(int num) {
@@ -56,11 +58,12 @@ public class Agenda {
     }
 
     public void setSomRandomContacts() {
-        Contacto q = new Contacto("Aitor Tilla Fina", "687459862");
-        Contacto w = new Contacto("Elena Nito Delbosque", "69832456");
+        contactos.add(new Contacto("Aitor Tilla Fina", "687459862"));
+        contactos.add(new Contacto("Elena Nito Delbosque", "69832456"));
+        contactos.add(new Contacto("Alba Sur Ero", "657984324"));
+        contactos.add(new Contacto("Aitor Menta Fuerte","678954235"));
 
-        contactos.add(q);
-        contactos.add(w);
+
     }
 
     public void clearAgenda() {

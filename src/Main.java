@@ -18,17 +18,6 @@ public class Main {
         Contacto contacto3 = new Contacto("Aitor Menta Fuerte", "698345781");
 
         agenda.setSomRandomContacts();
-       /* agenda.seeContacts();
-
-        agenda.addContact(contacto);
-        agenda.addContact(contacto2);
-        agenda.addContact(contacto3);
-        agenda.seeContacts();
-
-        agenda.getContact(3).chancheName("Carlos Moreno Cigala");
-        agenda.deleteContact(2);
-        agenda.getContact(3).chancheNumber("688888888");
-        agenda.seeContacts();*/
 
         while (si) {
             System.out.println("¿Que quieres hacer?  Elige el  numero de la orden");
@@ -44,6 +33,8 @@ public class Main {
             agenda.seeContacts();
 
             order = reader.nextInt();
+            reader.nextLine();
+
             if (order <= 7) {
                 switch (order) {
                     case 1:
@@ -52,6 +43,7 @@ public class Main {
                     case 2:
                         System.out.println("Elige el contacto a borrar");
                         order = reader.nextInt();
+                        reader.nextLine();
                         if(order <= agenda.getContactos().size()-1)
                         agenda.deleteContact(order);
                         else System.out.println("Pon un contacto valido cabezon");
@@ -62,6 +54,7 @@ public class Main {
                     case 4:
                         System.out.println("Elige el contacto a modificar");
                         order = reader.nextInt();
+                        reader.nextLine();
                         if(order <= agenda.getContactos().size()-1) {
                             System.out.println("Nombre del contacto:");
                             name = reader.nextLine();
@@ -71,6 +64,7 @@ public class Main {
                     case 5:
                         System.out.println("Elige el contacto a modificar");
                         order = reader.nextInt();
+                        reader.nextLine();
                         if(order <= agenda.getContactos().size()-1) {
                             System.out.println("Numero del contacto:");
                             num = reader.nextLine();
