@@ -9,7 +9,6 @@ public class Agenda {
     private Contacto contact;
     private List<Contacto> contactos = new LinkedList<Contacto>();
 
-    String nombresContactosRandom[] = {"", "", "Alba Sur Ero, Aitor Menta Fuerte"};
 
     public Agenda() {
     }
