@@ -1,15 +1,23 @@
 public class Contacto {
 
+    private int id;
     private String name;
     private String number;
+    private String address;
+    private String email;
 
    public Contacto(){
    }
 
-    public Contacto (String name, String number){
+    public Contacto (int id,String name, String number,String address,String email){
+       this.id = id;
        this.number = number;
        this.name = name;
+       this.address = address;
+       this.email = email;
+
     }
+
 
     public void chancheName (String name){
         this.name = name;
@@ -22,7 +30,6 @@ public class Contacto {
     public String getName() {
         return name;
     }
-
 
     public String getNumber() {
         return number;
