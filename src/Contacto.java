@@ -38,6 +38,14 @@ public class Contacto {
         return number;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
     @Override
     public String toString() {
         return "Contact name: "+
