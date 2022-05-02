@@ -5,7 +5,7 @@ public class HardcodedContactsProvider implements IcontactsProvider {
 
     List<Contacto> contactos = new LinkedList<>();
 
-    public HarcodedContactsProvider() {
+    public HardcodedContactsProvider() {
         contactos.add(new Contacto(0, "Pepe", "123456789", "C/Bonita", "pepe@gmail.com"));
         contactos.add(new Contacto(1, "Maria", "123456789", "C/Bonita", "pepe@gmail.com"));
         contactos.add(new Contacto(2, "Jose", "123456789", "C/Bonita", "pepe@gmail.com"));
@@ -24,7 +24,7 @@ public class HardcodedContactsProvider implements IcontactsProvider {
 
     @Override
     public void remove(Contacto contacto) {
-contactos.remove(contacto);
+        contactos.remove(contacto);
     }
 
     @Override
