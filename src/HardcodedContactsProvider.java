@@ -28,7 +28,13 @@ public class HardcodedContactsProvider implements IcontactsProvider {
     }
 
     @Override
-    public void update(Contacto contacot) {
-
+    public void update(Contacto newContact) {
+        boolean updated = false;
+        for (Contacto contacto : contactos) {
+            if (contacto.getId() == newContact.getId()) {
+                contacto = newContact;
+                break;
+            }
+        }
     }
 }

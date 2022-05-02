@@ -18,6 +18,9 @@ public class Contacto {
 
     }
 
+    public int getId() {
+        return id;
+    }
 
     public void chancheName (String name){
         this.name = name;
