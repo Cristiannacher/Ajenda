@@ -14,8 +14,6 @@ public class Main {
 
         Agenda agenda = new Agenda(provider);
 
-        agenda.setSomRandomContacts();
-
         while (si) {
             System.out.println("¿Que quieres hacer?  Elige el  numero de la orden");
             System.out.println();

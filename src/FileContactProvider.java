@@ -10,11 +10,11 @@ public class FileContactProvider implements IcontactsProvider {
 
     public void refresh() {
         try {
-            FileWriter writer = new FileWriter(f);
+            BufferedWriter output = new BufferedWriter(new FileWriter(f));
             String linea = "";
             for (Contacto contacto : contactos) {
                 linea = (contacto.getId() + " ; " + contacto.getName() + " ; " + contacto.getNumber() + " ; " + contacto.getAddress() + " ; " + contacto.getEmail() + "\n");
-                writer.write(linea);
+                output.write(linea);
             }
         } catch (IOException ioException) {
             System.out.println("Error");
