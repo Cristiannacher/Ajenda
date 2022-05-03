@@ -19,7 +19,6 @@ public class FileContactProvider implements IcontactsProvider {
         } catch (IOException ioException) {
             System.out.println("Error");
         }
-
     }
 
     @Override

@@ -1,6 +1,6 @@
 public class Contacto {
 
-    private int id;
+    private String id;
     private String name;
     private String number;
     private String address;
@@ -9,7 +9,7 @@ public class Contacto {
    public Contacto(){
    }
 
-    public Contacto (int id,String name, String number,String address,String email){
+    public Contacto (String id,String name, String number,String address,String email){
        this.id = id;
        this.number = number;
        this.name = name;
@@ -18,7 +18,7 @@ public class Contacto {
 
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -51,6 +51,8 @@ public class Contacto {
         return "Contact name: "+
                 name +
                 "  |" +
-                "  Number: "+ number;
+                "  Number: "+ number +
+                " Adress: " + address +
+                " Gmail: "+ email;
     }
 }

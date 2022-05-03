@@ -10,8 +10,9 @@ public class Main {
         String num = "";
 
         Scanner reader = new Scanner(System.in);
+        FileContactProvider provider = new FileContactProvider();
 
-        Agenda agenda = new Agenda();
+        Agenda agenda = new Agenda(provider);
 
         agenda.setSomRandomContacts();
 
