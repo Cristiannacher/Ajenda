@@ -68,13 +68,13 @@ public class Contacto {
 
     @Override
     public String toString() {
-        return "Contact name: " + name +
+        return "CONTACT NAME: " + name +
                 " -" +
-                "  Number: " + number +
+                "  NUMBER: " + number +
                 " -" +
-                " Adress: " + address +
+                " ADRESS: " + address +
                 " -" +
-                " Gmail: " + email;
+                " EMAIL: " + email;
     }
 
     @Override

@@ -27,6 +27,12 @@ public class Agenda {
         contactos = provider.loadContacts();
     }
 
+    public void update(Contacto contacto){
+        provider.update(contacto);
+        contactos = provider.loadContacts();
+    }
+
+
     public Contacto createContact() {
         String name = "";
         String num = "";
@@ -46,6 +52,7 @@ public class Agenda {
     }
 
     public void seeContacts() {
+        contactos = provider.loadContacts();
         System.out.println();
         System.out.println("Tus contactos son:");
         if (!contactos.isEmpty()) {
@@ -63,15 +70,6 @@ public class Agenda {
 
     public void deleteContact(int num) {
         provider.remove(contactos.get(num));
-        contactos = provider.loadContacts();
-    }
-
-    public void setSomRandomContacts() {
-        provider.add(new Contacto("Aitor Tilla Fina", "687459862","calle","contacto1@gmail.com"));
-        provider.add(new Contacto("Elena Nito Delbosque", "69832456","calle","contacto2@gmail.com"));
-        provider.add(new Contacto("Alba Sur Ero", "657984324","calle","contacto3@gmail.com"));
-        provider.add(new Contacto("Aitor Menta Fuerte","678954235","calle","contacto4@gmail.com"));
-
         contactos = provider.loadContacts();
     }
 

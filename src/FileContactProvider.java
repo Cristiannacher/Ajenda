@@ -18,10 +18,9 @@ public class FileContactProvider implements IcontactsProvider {
             }
             output.close();
         } catch (IOException ioException) {
-            System.out.println("Error");
+            System.out.println("No se ha encontrado el archivo");
         }
     }
-
 
     @Override
     public List<Contacto> loadContacts() {
@@ -37,7 +36,7 @@ public class FileContactProvider implements IcontactsProvider {
             }
             input.close();
         } catch (IOException ioException) {
-            System.out.println("Error");
+            System.out.println("No se ha encontrado el archivo");
         }
         return contactos;
     }
@@ -57,8 +56,8 @@ public class FileContactProvider implements IcontactsProvider {
     @Override
     public void update(Contacto newContact) {
         for (Contacto contacto : contactos) {
-            if (contacto.getId() == newContact.getId()) {
-                contacto = newContact;
+            if (contacto.equals(newContact)) {
+                contactos.set(contactos.indexOf(contacto), newContact);
                 break;
             }
         }

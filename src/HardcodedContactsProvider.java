@@ -30,8 +30,8 @@ public class HardcodedContactsProvider implements IcontactsProvider {
     @Override
     public void update(Contacto newContact) {
         for (Contacto contacto : contactos) {
-            if (contacto.getId() == newContact.getId()) {
-                contacto = newContact;
+            if (contacto.equals(newContact)) {
+                contactos.set(contactos.indexOf(contacto), newContact);
                 break;
             }
         }
@@ -39,6 +39,7 @@ public class HardcodedContactsProvider implements IcontactsProvider {
 
     @Override
     public void clean() {
+        contactos.clear();
 
     }
 }
