@@ -21,8 +21,8 @@ public class Agenda {
         return contactos;
     }
 
+
     public void addContact(Contacto contact) {
-        System.out.println("You ad a " + contact.getName());
         provider.add(contact);
         contactos = provider.loadContacts();
     }
@@ -31,24 +31,20 @@ public class Agenda {
         String name = "";
         String num = "";
         String adress = "";
-        String id = "";
-        String gmail = "";
-        System.out.println("Id del contacto:");
-        id = reader.nextLine();
+        String email = "";
         System.out.println("Nombre del contacto:");
         name = reader.nextLine();
         System.out.println("Numero del contacto:");
         num = reader.nextLine();
         System.out.println("Direccion del contacto:");
-        num = reader.nextLine();
+        adress = reader.nextLine();
         System.out.println("Gmail del contacto:");
-        num = reader.nextLine();
+         email= reader.nextLine();
 
-        Contacto t = new Contacto(id, name, num, adress, gmail);
+        Contacto t = new Contacto(name, num, adress, email);
         return t;
     }
 
-    // falta poner que es alfabeticamente
     public void seeContacts() {
         System.out.println();
         System.out.println("Tus contactos son:");
@@ -66,18 +62,22 @@ public class Agenda {
     }
 
     public void deleteContact(int num) {
-        contactos.remove(num);
+        provider.remove(contactos.get(num));
+        contactos = provider.loadContacts();
     }
 
-    /*public void setSomRandomContacts() {
-        contactos.add(new Contacto("Aitor Tilla Fina", "687459862"));
-        contactos.add(new Contacto("Elena Nito Delbosque", "69832456"));
-        contactos.add(new Contacto("Alba Sur Ero", "657984324"));
-        contactos.add(new Contacto("Aitor Menta Fuerte", "678954235"));
-    }*/
+    public void setSomRandomContacts() {
+        provider.add(new Contacto("Aitor Tilla Fina", "687459862","calle","contacto1@gmail.com"));
+        provider.add(new Contacto("Elena Nito Delbosque", "69832456","calle","contacto2@gmail.com"));
+        provider.add(new Contacto("Alba Sur Ero", "657984324","calle","contacto3@gmail.com"));
+        provider.add(new Contacto("Aitor Menta Fuerte","678954235","calle","contacto4@gmail.com"));
+
+        contactos = provider.loadContacts();
+    }
 
     public void clearAgenda() {
-        contactos.clear();
+        provider.clean();
+        contactos = provider.loadContacts();
     }
 }
 

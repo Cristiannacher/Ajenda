@@ -13,6 +13,7 @@ public class Main {
         FileContactProvider provider = new FileContactProvider();
 
         Agenda agenda = new Agenda(provider);
+        agenda.setSomRandomContacts();
 
         while (si) {
             System.out.println("¿Que quieres hacer?  Elige el  numero de la orden");
@@ -22,15 +23,17 @@ public class Main {
             System.out.println("3.- Ver los contactos");
             System.out.println("4.- Modificar el nombre de un contacto");
             System.out.println("5.- Modificar el numero de un contacto");
-            System.out.println("6.- Vaciar agenda");
-            System.out.println("7.- NO quiero hacer nada mas");
+            System.out.println("6.- Modificar la direccion del contacto");
+            System.out.println("7.- Modificar el correo del contacto");
+            System.out.println("8.- Vaciar agenda");
+            System.out.println("9.- NO quiero hacer nada mas");
 
             agenda.seeContacts();
 
             order = reader.nextInt();
             reader.nextLine();
 
-            if (order <= 7) {
+            if (order <= 9) {
                 switch (order) {
                     case 1:
                         agenda.addContact(agenda.createContact());
@@ -67,12 +70,33 @@ public class Main {
                         } else System.out.println("Elige un contacto valido cabezon");
                         break;
                     case 6:
-                        agenda.clearAgenda();
+                        System.out.println("Elige el contacto a modificar");
+                        order = reader.nextInt();
+                        reader.nextLine();
+                        if(order <= agenda.getContactos().size()-1) {
+                            System.out.println("Direccion del contacto:");
+                            name = reader.nextLine();
+                            agenda.getContact(order).chancheAdress(name);
+                        } else System.out.println("Elige un contacto valido cabezon");
                         break;
                     case 7:
+                        System.out.println("Elige el contacto a modificar");
+                        order = reader.nextInt();
+                        reader.nextLine();
+                        if(order <= agenda.getContactos().size()-1) {
+                            System.out.println("Email del contacto:");
+                            name = reader.nextLine();
+                            agenda.getContact(order).chancheEmail(name);
+                        } else System.out.println("Elige un contacto valido cabezon");
+                        break;
+                    case 8:
+                        agenda.clearAgenda();
+                        break;
+                    case 9:
                         si = false;
                         break;
                 }
+
             } else System.out.println("Elige una orden valida cabezon");
 
         }

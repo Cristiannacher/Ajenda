@@ -6,10 +6,10 @@ public class HardcodedContactsProvider implements IcontactsProvider {
     List<Contacto> contactos = new LinkedList<>();
 
     public HardcodedContactsProvider() {
-        contactos.add(new Contacto("123", "Pepe", "123456789", "C/Bonita", "pepe@gmail.com"));
-        contactos.add(new Contacto("1234", "Maria", "123456789", "C/Bonita", "pepe@gmail.com"));
-        contactos.add(new Contacto("12345", "Jose", "123456789", "C/Bonita", "pepe@gmail.com"));
-        contactos.add(new Contacto("123456", "Cosmin", "123456789", "C/Bonita", "pepe@gmail.com"));
+        contactos.add(new Contacto(123, "Pepe", "123456789", "C/Bonita", "pepe@gmail.com"));
+        contactos.add(new Contacto(1234, "Maria", "123456789", "C/Bonita", "pepe@gmail.com"));
+        contactos.add(new Contacto(12345, "Jose", "123456789", "C/Bonita", "pepe@gmail.com"));
+        contactos.add(new Contacto(123456, "Cosmin", "123456789", "C/Bonita", "pepe@gmail.com"));
     }
 
     @Override
@@ -35,5 +35,10 @@ public class HardcodedContactsProvider implements IcontactsProvider {
                 break;
             }
         }
+    }
+
+    @Override
+    public void clean() {
+
     }
 }
