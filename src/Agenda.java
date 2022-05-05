@@ -64,7 +64,7 @@ public class Agenda {
     }
 
     public Contacto getContact(int num) {
-        contactos = provider.loadContacts();
+
         return contactos.get(num);
     }
 

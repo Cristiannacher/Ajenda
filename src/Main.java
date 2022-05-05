@@ -85,6 +85,7 @@ public class Main {
                             System.out.println("Direccion del contacto:");
                             name = reader.nextLine();
                             agenda.getContact(order).chancheAdress(name);
+                            System.out.println(name);
                             agenda.update(agenda.getContact(order));
                         } else System.out.println("Elige un contacto valido cabezon");
                         break;

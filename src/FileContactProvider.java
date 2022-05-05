@@ -1,3 +1,5 @@
+import Excepciones.LoadContactsExeception;
+
 import java.io.*;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,8 +15,9 @@ public class FileContactProvider implements IcontactsProvider {
             BufferedWriter output = new BufferedWriter(new FileWriter(f));
             String linea = "";
             for (Contacto contacto : contactos) {
-                linea = (contacto.getId() + "; " + contacto.getName() + " ; " + contacto.getNumber() + " ; " + contacto.getAddress() + " ; " + contacto.getEmail() + "\n");
+                linea = (contacto.getId() + ";" + contacto.getName() + ";" + contacto.getNumber() + ";" + contacto.getAddress() + ";" + contacto.getEmail() + "\n");
                 output.write(linea);
+                output.flush();
             }
             output.close();
         } catch (IOException ioException) {
@@ -23,7 +26,7 @@ public class FileContactProvider implements IcontactsProvider {
     }
 
     @Override
-    public List<Contacto> loadContacts() {
+    public List<Contacto> loadContacts() throws LoadContactsExeception {
         List<Contacto> contactos = new LinkedList<>();
         try {
             BufferedReader input = new BufferedReader(new FileReader(f));
@@ -36,7 +39,7 @@ public class FileContactProvider implements IcontactsProvider {
             }
             input.close();
         } catch (IOException ioException) {
-            System.out.println("No se ha encontrado el archivo");
+            throw new LoadContactsExeception();
         }
         return contactos;
     }
@@ -58,10 +61,11 @@ public class FileContactProvider implements IcontactsProvider {
         for (Contacto contacto : contactos) {
             if (contacto.equals(newContact)) {
                 contactos.set(contactos.indexOf(contacto), newContact);
+                safeContacts();
                 break;
             }
         }
-        safeContacts();
+
     }
 
     @Override
