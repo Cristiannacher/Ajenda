@@ -1,3 +1,5 @@
+import Excepciones.LoadContactsExeception;
+
 import java.awt.*;
 import java.lang.reflect.Array;
 import java.util.LinkedList;
@@ -10,7 +12,6 @@ public class Agenda {
     private List<Contacto> contactos = new LinkedList<Contacto>();
     private IcontactsProvider provider;
 
-
     public Agenda(IcontactsProvider provider) {
         this.provider = provider;
     }
@@ -22,16 +23,15 @@ public class Agenda {
     }
 
 
-    public void addContact(Contacto contact) {
+    public void addContact(Contacto contact) throws LoadContactsExeception {
         provider.add(contact);
         contactos = provider.loadContacts();
     }
 
-    public void update(Contacto contacto){
+    public void update(Contacto contacto) throws LoadContactsExeception{
         provider.update(contacto);
         contactos = provider.loadContacts();
     }
-
 
     public Contacto createContact() {
         String name = "";
@@ -51,7 +51,7 @@ public class Agenda {
         return t;
     }
 
-    public void seeContacts() {
+    public void seeContacts() throws LoadContactsExeception{
         contactos = provider.loadContacts();
         System.out.println();
         System.out.println("Tus contactos son:");
@@ -68,12 +68,12 @@ public class Agenda {
         return contactos.get(num);
     }
 
-    public void deleteContact(int num) {
+    public void deleteContact(int num) throws LoadContactsExeception{
         provider.remove(contactos.get(num));
         contactos = provider.loadContacts();
     }
 
-    public void clearAgenda() {
+    public void clearAgenda() throws LoadContactsExeception{
         provider.clean();
         contactos = provider.loadContacts();
     }

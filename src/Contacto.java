@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.Random;
 
-public class Contacto {
+public class Contacto implements Serializable {
 
     private int id;
     private String name;
