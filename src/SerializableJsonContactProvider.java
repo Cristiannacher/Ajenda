@@ -13,31 +13,31 @@ public class SerializableJsonContactProvider implements IcontactsProvider {
     private File f = new File("Resources/fixero2.txt");
 
     public void safeContacts() {
-
         try {
-            FileWriter weriter2 = new FileWriter(f);
+            FileWriter writer = new FileWriter(f);
+            String contactosToJson = "";
             Gson gson = new Gson();
-            gson.toJson(contactos,weriter2);
-
+            for (Contacto contacto : contactos) {
+                contactosToJson = gson.toJson(contacto);
+                writer.write(contactosToJson);
+            }
         } catch (IOException ioException) {
-            System.out.println("No se ha encontrado el archivo");
+            System.out.println("Algo ha pasao");
         }
     }
-
+// me sigue petando por problemas de librerias y no se solucionarlo
     @Override
-    public List<Contacto> loadContacts() throws LoadContactsExeception {
+    public List<Contacto> loadContacts() {
         LinkedList<Contacto> contacts = new LinkedList<>();
-        Type listaContactosType = new TypeToken<List<Contacto>>(){}.getType();
+        Type listaContactosType = new TypeToken<List<Contacto>>() {
+        }.getType();
         try (FileReader reader = new FileReader(f)) {
             Gson gson = new Gson();
-            gson.fromJson(reader,listaContactosType);
+            gson.fromJson(reader, listaContactosType);
         } catch (EOFException eof) {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
-        // catch (IOException ioException) {
-        // throw new LoadContactsExeception();
-        //}
         return contacts;
     }
 

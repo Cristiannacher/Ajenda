@@ -18,7 +18,7 @@ public class Main {
         IcontactsProvider provider2 = new SerializableContactProvider();
         IcontactsProvider provider3 = new SerializableJsonContactProvider();
 
-        System.out.println("Quieres trabajar con memoria con fixero o serializado? 1 memoria 2 fixero 3 serializado");
+        System.out.println("Quieres trabajar con memoria con fixero o serializado? 1 memoria 2 fixero 3 serializado 4 serializadoJson");
         int elige = reader.nextInt();
         boolean elegirBien = true;
 
